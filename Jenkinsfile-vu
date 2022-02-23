@@ -10,7 +10,7 @@ pipeline {
     }
     stage('run k6 test') {
       steps {
-        sh 'k6 run script.js'
+        sh 'k6 run --vus 10 --duration 30s --out influxdb=http://13.233.15.200:8086/myk6db script.js'
       }
     }
   }
